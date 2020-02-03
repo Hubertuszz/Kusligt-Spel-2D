@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class CloseRangeAI : MonoBehaviour
 {
+    //referenses
     private StateMachine sm = new StateMachine();
+    private ChangeAppearance ch;
 
     ////public variables
     public GameObject target;
     public Transform forwardPos;
     public Transform backPos;
+    public GameObject chRef;
 
     ////private variables
     private Rigidbody2D rb;
@@ -24,6 +27,7 @@ public class CloseRangeAI : MonoBehaviour
     private float maxSpeed = 7.5f;
 
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,7 +37,7 @@ public class CloseRangeAI : MonoBehaviour
         sm.AddState("Attack", attack);
         sm.AddState("Follow", follow);
         sm.SetActiveState("Idle");
-        
+        ch = chRef.GetComponent<ChangeAppearance>();
     }
 
     void Update()
@@ -44,7 +48,7 @@ public class CloseRangeAI : MonoBehaviour
 
     public void idle(StateMachine s)
     {
-        if (Vector3.Distance(transform.position, target.transform.position) < followRad)
+        if (Vector3.Distance(transform.position, target.transform.position) < followRad && )
         {
             s.SetActiveState("Follow");
 
