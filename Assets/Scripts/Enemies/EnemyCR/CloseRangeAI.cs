@@ -12,7 +12,6 @@ public class CloseRangeAI : MonoBehaviour
     public GameObject target;
     public Transform forwardPos;
     public Transform backPos;
-    public GameObject chRef;
 
     ////private variables
     private Rigidbody2D rb;
@@ -37,7 +36,7 @@ public class CloseRangeAI : MonoBehaviour
         sm.AddState("Attack", attack);
         sm.AddState("Follow", follow);
         sm.SetActiveState("Idle");
-        ch = chRef.GetComponent<ChangeAppearance>();
+        ch = target.GetComponent<ChangeAppearance>();
     }
 
     void Update()
@@ -48,7 +47,7 @@ public class CloseRangeAI : MonoBehaviour
 
     public void idle(StateMachine s)
     {
-        if (Vector3.Distance(transform.position, target.transform.position) < followRad && )
+        if (Vector3.Distance(transform.position, target.transform.position) < followRad && ch.isInfected == true)
         {
             s.SetActiveState("Follow");
 

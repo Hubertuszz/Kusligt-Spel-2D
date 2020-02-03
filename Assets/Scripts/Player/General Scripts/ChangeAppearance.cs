@@ -5,7 +5,7 @@ using UnityEngine;
 public class ChangeAppearance : MonoBehaviour
 {
     public Sprite[] sprites;
-    bool isInfected = false;
+    public bool isInfected = false;
     // Start is called before the first frame update
     void Start()
     {
