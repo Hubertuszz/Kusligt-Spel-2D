@@ -17,7 +17,8 @@ public class CloseRangeAI : MonoBehaviour
     private bool facingRight = false;
 
     //Radius
-    private float moveRad;
+    public float followRad;
+    public float attackRad;
 
     //movement
     private float maxSpeed = 7.5f;
@@ -29,6 +30,8 @@ public class CloseRangeAI : MonoBehaviour
 
         //States
         sm.AddState("Idle", idle);
+        sm.AddState("Attack", attack);
+        sm.AddState("Follow", follow);
         sm.SetActiveState("Idle");
         
     }
@@ -36,13 +39,14 @@ public class CloseRangeAI : MonoBehaviour
     void Update()
     {
         sm.Run();
+        Debug.Log(target.transform.position);
     }
 
     public void idle(StateMachine s)
     {
-        if (Vector3.Distance(transform.position, target.transform.position) < moveRad)
+        if (Vector3.Distance(transform.position, target.transform.position) < followRad)
         {
-            //setactivestate movement
+            s.SetActiveState("Follow");
 
 
         }
@@ -71,5 +75,41 @@ public class CloseRangeAI : MonoBehaviour
             }
         }
         
+    }
+
+    public void attack(StateMachine s)
+    {
+
+    }
+
+    public void follow(StateMachine s)
+    {
+        Debug.Log("Hellllo");
+        if (Vector3.Distance(transform.position, target.transform.position) < attackRad)
+        {
+            //s.SetActiveState("Attack");
+        }
+        else if(Vector3.Distance(transform.position, target.transform.position) > followRad)
+        {
+            s.SetActiveState("Idle");
+        }
+        else if(transform.position.x > target.transform.position.x)
+        {
+            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+            if (facingRight == true)
+            {
+                transform.Rotate(0, 180, 0);
+                facingRight = false;
+            }
+        }
+        else if(transform.position.x < target.transform.position.x)
+        {
+            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
+            if (facingRight != true)
+            {
+                transform.Rotate(0, 180, 0);
+                facingRight = true;
+            }
+        }
     }
 }
