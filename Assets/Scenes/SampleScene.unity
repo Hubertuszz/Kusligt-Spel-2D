@@ -129,11 +129,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 163326225}
-  - component: {fileID: 163326222}
   - component: {fileID: 163326221}
   - component: {fileID: 163326219}
   - component: {fileID: 163326220}
   - component: {fileID: 163326223}
+  - component: {fileID: 163326222}
   - component: {fileID: 163326224}
   m_Layer: 8
   m_Name: Test Player
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084cfa958a44cad469cbaafe5286e0c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FacingRight: 1
   speed: 30
   jumpForce: 45
   circleRad: 0.6
@@ -199,7 +200,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 569706107198287554, guid: ede07901fa7bc8146a15dbde519fc258, type: 3}
+  m_Sprite: {fileID: -4180797580395453689, guid: 2c4914aaea5d8aa43b90950b7c533338,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -231,8 +233,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &163326222
-CapsuleCollider2D:
+--- !u!61 &163326222
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -241,12 +243,22 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15220682, y: 0.22441226}
-  m_Size: {x: 5.9721518, y: 8.858705}
-  m_Direction: 0
+  m_Offset: {x: 0.20421627, y: -0.010633111}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.17, y: 0.32}
+    newSize: {x: 6.73, y: 8.539999}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6517479, y: 0.3969127}
+  m_EdgeRadius: 0
 --- !u!114 &163326223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: -834664780871367814, guid: ede07901fa7bc8146a15dbde519fc258, type: 3}
+  - {fileID: -4180797580395453689, guid: 2c4914aaea5d8aa43b90950b7c533338, type: 3}
   - {fileID: 569706107198287554, guid: ede07901fa7bc8146a15dbde519fc258, type: 3}
 --- !u!114 &163326224
 MonoBehaviour:
@@ -284,8 +296,9 @@ Transform:
   m_GameObject: {fileID: 163326218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -37.3, y: -2.1, z: -2.7396255}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 26.38535, y: 26.38535, z: 26.38535}
   m_Children:
+  - {fileID: 855019124}
   - {fileID: 387945436}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -418,11 +431,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387945435}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -4.12, z: 0}
+  m_LocalPosition: {x: 0.01, y: -0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 163326225}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &685459401
 GameObject:
@@ -454,6 +467,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &855019123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 855019124}
+  - component: {fileID: 855019125}
+  m_Layer: 8
+  m_Name: Collision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &855019124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855019123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 163326225}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &855019125
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855019123}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00016588329, y: 0.0014362395}
+  m_Size: {x: 0.18107772, y: 0.33415505}
+  m_Direction: 0
 --- !u!1 &1007168728
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,9 +640,9 @@ GameObject:
   - component: {fileID: 1856433005}
   - component: {fileID: 1856433004}
   - component: {fileID: 1856433006}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Test Enemy
-  m_TagString: Enemy
+  m_TagString: Infected
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Movement : MonoBehaviour {
-
+	public bool m_FacingRight = true;
 	public float speed;
 	public float jumpForce;
 	public float circleRad;
@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour {
 	void Update(){
 		isGrounded = Physics2D.OverlapCircle(feetPos.position, circleRad, whatIsGround);
 
-		if(isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+		if(isGrounded == true && Input.GetKeyDown(KeyCode.W))
 			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 		
 
@@ -29,13 +29,24 @@ public class Movement : MonoBehaviour {
 
 	void FixedUpdate(){
 		Move(Input.GetAxisRaw("Horizontal"));
+		
 	}
+
+
 
 
 	public void Move(float horiz){
 		Vector2 moveVel = rb.velocity;
 		moveVel.x = horiz * speed;
 		rb.velocity = moveVel;
+		if (horiz > 0 && !m_FacingRight)
+			Flip();
+		else if (horiz < 0 && m_FacingRight)
+			Flip();
 	}
-
+	public void Flip()
+    {
+        m_FacingRight = !m_FacingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
 }
