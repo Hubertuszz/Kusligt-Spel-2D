@@ -273,7 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites:
   - {fileID: -4180797580395453689, guid: 2c4914aaea5d8aa43b90950b7c533338, type: 3}
-  - {fileID: 569706107198287554, guid: ede07901fa7bc8146a15dbde519fc258, type: 3}
+  - {fileID: 6769392395872078069, guid: 4099ce5ed30bac3459f993a9ce4cc11b, type: 3}
+  isInfected: 0
 --- !u!114 &163326224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,7 +282,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 163326218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df0eda4c2f99ab443b9ce862cbf191b4, type: 3}
   m_Name: 

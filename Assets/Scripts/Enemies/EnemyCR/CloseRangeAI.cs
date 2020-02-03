@@ -42,7 +42,6 @@ public class CloseRangeAI : MonoBehaviour
     void Update()
     {
         sm.Run();
-        Debug.Log(target.transform.position);
     }
 
     public void idle(StateMachine s)
@@ -50,8 +49,6 @@ public class CloseRangeAI : MonoBehaviour
         if (Vector3.Distance(transform.position, target.transform.position) < followRad && ch.isInfected == true)
         {
             s.SetActiveState("Follow");
-
-
         }
         else if (transform.position.x > forwardPos.transform.position.x && fwtrue == true)
         {
@@ -87,7 +84,6 @@ public class CloseRangeAI : MonoBehaviour
 
     public void follow(StateMachine s)
     {
-        Debug.Log("Hellllo");
         if (Vector3.Distance(transform.position, target.transform.position) < attackRad)
         {
             //s.SetActiveState("Attack");
