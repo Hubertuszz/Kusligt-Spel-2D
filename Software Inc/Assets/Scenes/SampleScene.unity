@@ -133,6 +133,8 @@ GameObject:
   - component: {fileID: 163326221}
   - component: {fileID: 163326219}
   - component: {fileID: 163326220}
+  - component: {fileID: 163326223}
+  - component: {fileID: 163326224}
   m_Layer: 8
   m_Name: Test Player
   m_TagString: Player
@@ -245,6 +247,34 @@ CapsuleCollider2D:
   m_Offset: {x: 0.15220682, y: 0.22441226}
   m_Size: {x: 5.9721518, y: 8.858705}
   m_Direction: 0
+--- !u!114 &163326223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163326218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdd70736660d5ce45a2b416904061030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -834664780871367814, guid: ede07901fa7bc8146a15dbde519fc258, type: 3}
+  - {fileID: 569706107198287554, guid: ede07901fa7bc8146a15dbde519fc258, type: 3}
+--- !u!114 &163326224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163326218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0eda4c2f99ab443b9ce862cbf191b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0
 --- !u!4 &163326225
 Transform:
   m_ObjectHideFlags: 0
