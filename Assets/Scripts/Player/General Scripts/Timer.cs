@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
 
     public void StartTimer(){
         time = 0;
-        InvokeRepeating("IncrimentTime", 1,1);
+        InvokeRepeating("IncrementTime", 1,1);
     }
   
     void Update() {
@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour
         CancelInvoke();
     }
 
-    public void IncrimentTime(){
+    public void IncrementTime() {
 
         time += 1;
         

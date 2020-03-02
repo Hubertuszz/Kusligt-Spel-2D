@@ -13,8 +13,7 @@ public class ChangeAppearance : MonoBehaviour
         isInfected = false;
     }
 
-    void Update()
-    {
+    void Update() {
         image.rectTransform.sizeDelta = new Vector2(amount,20);
         
         if(isInfected == true) {
@@ -32,5 +31,4 @@ public class ChangeAppearance : MonoBehaviour
             GetComponent<Attack>().enabled = false;
         }
     }
-
 }
