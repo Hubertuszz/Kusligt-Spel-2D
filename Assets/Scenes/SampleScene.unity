@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 163326227}
   - component: {fileID: 163326228}
   - component: {fileID: 163326229}
+  - component: {fileID: 163326230}
   m_Layer: 8
   m_Name: Test Player
   m_TagString: Player
@@ -372,6 +373,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &163326230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163326218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b676ca412186eb45a64044159d80875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &249486987
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,6 +635,10 @@ MonoBehaviour:
   target: {fileID: 163326218}
   forwardPos: {fileID: 685459402}
   backPos: {fileID: 1007168729}
+  dmgInf: 10
+  dmgP: 25
+  delayAttack: 10
+  dA: 0
   followRad: 30
   attackRad: 15
 --- !u!61 &569946696
@@ -783,6 +801,10 @@ MonoBehaviour:
   target: {fileID: 163326218}
   forwardPos: {fileID: 685459402}
   backPos: {fileID: 1007168729}
+  dmgInf: 10
+  dmgP: 25
+  delayAttack: 10
+  dA: 0
   followRad: 30
   attackRad: 15
 --- !u!61 &672523026
@@ -1309,6 +1331,10 @@ MonoBehaviour:
   target: {fileID: 163326218}
   forwardPos: {fileID: 685459402}
   backPos: {fileID: 1007168729}
+  dmgInf: 10
+  dmgP: 25
+  delayAttack: 10
+  dA: 0
   followRad: 30
   attackRad: 15
 --- !u!61 &1473675704
@@ -1647,6 +1673,10 @@ MonoBehaviour:
   target: {fileID: 163326218}
   forwardPos: {fileID: 685459402}
   backPos: {fileID: 1007168729}
+  dmgInf: 10
+  dmgP: 25
+  delayAttack: 10
+  dA: 0
   followRad: 30
   attackRad: 15
 --- !u!114 &1856433007

@@ -7,11 +7,16 @@ public class CloseRangeAI : MonoBehaviour
     //referenses
     private StateMachine sm = new StateMachine();
     private ChangeAppearance ch;
+    private PlayerHealth ph;
 
     ////public variables
     public GameObject target;
     public Transform forwardPos;
     public Transform backPos;
+    public int dmgInf = 10;
+    public int dmgP = 25;
+    public int delayAttack = 3;
+    public float dA;
 
     ////private variables
     private Rigidbody2D rb;
@@ -37,11 +42,13 @@ public class CloseRangeAI : MonoBehaviour
         sm.AddState("Follow", follow);
         sm.SetActiveState("Idle");
         ch = target.GetComponent<ChangeAppearance>();
+        ph = target.GetComponent<PlayerHealth>();
     }
 
     void Update()
     {
         sm.Run();
+        dA += Time.deltaTime;
     }
 
     public void idle(StateMachine s)
@@ -79,14 +86,30 @@ public class CloseRangeAI : MonoBehaviour
 
     public void attack(StateMachine s)
     {
-
+        if (Vector3.Distance(transform.position, target.transform.position) < followRad && Vector3.Distance(transform.position, target.transform.position) > attackRad && ch.isInfected == true)
+        {
+            s.SetActiveState("Follow");
+        }
+        else
+        {
+            
+            if (ch.isInfected == true && dA > delayAttack)
+            {
+                ph.Damage(dmgInf);
+                dA = 0;
+                Debug.Log(ph.health);
+            }
+            else if(ch.isInfected != true && dA > delayAttack)
+                ph.Damage(dmgP);
+            
+        }
     }
 
     public void follow(StateMachine s)
     {
         if (Vector3.Distance(transform.position, target.transform.position) < attackRad)
         {
-            //s.SetActiveState("Attack");
+            s.SetActiveState("Attack");
         }
         else if(Vector3.Distance(transform.position, target.transform.position) > followRad)
         {

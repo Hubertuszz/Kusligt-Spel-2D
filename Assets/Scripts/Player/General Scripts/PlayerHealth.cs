@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
             Die(); 
     }
 
-    void Damage(int a) {
+   public void Damage(int a) {
         health -= a;
     }
 
