@@ -9,7 +9,7 @@ public class Attack : MonoBehaviour
     Collider2D infected;
 
     void Update() {
-        if(canAttack == true && Input.GetKeyDown(KeyCode.Space))
+        if(canAttack == true && Input.GetKeyDown(KeyCode.Space) && infected)
             infected.gameObject.GetComponent<Health>().TakeDmg(34);            
     }
 
@@ -25,5 +25,22 @@ public class Attack : MonoBehaviour
             canAttack = false;
             infected = null;
         }
+    }
+
+    public float closeDistance = 5;
+    
+    public CheckCloseDistance()
+    {
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Point");
+    
+            for(int i = 0; i < taggedObjects.length; i++)
+            {
+                    if(Vector3.Distance(a.transform.position, 
+                            taggedObjects[i].transform.position) <= closeDistance)
+                    {
+                            //This is within your close distance so do whatever close 
+                            //logic here
+                    }
+            }
     }
 }
