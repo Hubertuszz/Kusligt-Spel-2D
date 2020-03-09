@@ -26,21 +26,4 @@ public class Attack : MonoBehaviour
             infected = null;
         }
     }
-
-    public float closeDistance = 5;
-    
-    public CheckCloseDistance()
-    {
-            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Point");
-    
-            for(int i = 0; i < taggedObjects.length; i++)
-            {
-                    if(Vector3.Distance(a.transform.position, 
-                            taggedObjects[i].transform.position) <= closeDistance)
-                    {
-                            //This is within your close distance so do whatever close 
-                            //logic here
-                    }
-            }
-    }
 }
