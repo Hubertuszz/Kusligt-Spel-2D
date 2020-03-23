@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
     }
 
     void Update () {
-        specificVector = new Vector3(transform.position.x, transform.position.y, cameraObj.transform.position.z);
+        specificVector = new Vector3(transform.position.x, transform.position.y + 20, cameraObj.transform.position.z);
         cameraObj.transform.position = Vector3.Lerp(cameraObj.transform.position, specificVector, smoothSpeed * Time.deltaTime);
     }
 }
