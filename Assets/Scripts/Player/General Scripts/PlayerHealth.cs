@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class PlayerHealth : MonoBehaviour
 {
     public int health;
@@ -11,14 +12,17 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip clip;
     public AudioSource src;
 
+public class PlayerHealth : MonoBehaviour
+{
+    public int health;
+
     void Start() {
         health = 100;
     	src.clip = clip;
     }
     
     void Update() {
-        image.rectTransform.sizeDelta = new Vector2(health, 20);
-        if (health <= 0)
+        if(health <= 0)
             Die(); 
     }
 
