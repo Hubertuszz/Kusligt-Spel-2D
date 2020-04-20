@@ -16,7 +16,7 @@ public class ChangeAppearance : MonoBehaviour
         amount = 0;
     }
     void Update() {
-        image.rectTransform.sizeDelta = new Vector2(amount,20);
+        image.rectTransform.sizeDelta = new Vector2(amount,10);
         
         if(isInfected == false) {
             if(amount < 100f)
