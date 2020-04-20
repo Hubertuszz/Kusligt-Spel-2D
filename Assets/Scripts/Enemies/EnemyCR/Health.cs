@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     public GameObject blood;
     public Toggle splashBlood;
 
+    public Score sc;
+
     // Start is called before the first frame update
     public void TakeDmg(int amount) {
         health -= amount;
@@ -18,16 +20,12 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
             if(splashBlood.isOn)
                 Instantiate(blood, transform.position, Quaternion.identity);
+            sc.score += 10;
+            PlayerPrefs.SetInt("score", sc.score);
         }
     }
-    void Start()
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PlayerPrefs.SetInt("score", 0);
     }
 }
