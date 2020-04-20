@@ -15,7 +15,7 @@ public class CloseRangeAI : MonoBehaviour
     public Transform backPos;
     public int dmgInf = 10;
     public int dmgP = 25;
-    public int delayAttack = 3;
+    public float delayAttack = 0.3f;
     public float dA;
 
     ////private variables
@@ -92,16 +92,11 @@ public class CloseRangeAI : MonoBehaviour
         }
         else
         {
-            
-            if (ch.isInfected == true && dA > delayAttack)
-            {
+            if (ch.isInfected == true && dA > delayAttack) {
                 ph.Damage(dmgInf);
                 dA = 0;
                 Debug.Log(ph.health);
             }
-            else if(ch.isInfected != true && dA > delayAttack)
-                ph.Damage(dmgP);
-            
         }
     }
 
