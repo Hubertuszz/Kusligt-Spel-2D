@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseRangeAI : MonoBehaviour
+public class EnemyLR : MonoBehaviour 
 {
     //referenses
     private StateMachine sm = new StateMachine();
@@ -11,18 +11,20 @@ public class CloseRangeAI : MonoBehaviour
 
     ////public variables
     public GameObject target;
-    public GameObject self;
     public Transform forwardPos;
     public Transform backPos;
     public int dmgInf = 10;
     public int dmgP = 25;
-    public int delayAttack = 3;
+    public float nextFire = 3;
+    public float fireRate = 4;
     public float dA;
+    public Rigidbody2D projectile;
+    public Transform fp;
 
     ////private variables
     private Rigidbody2D rb;
     private bool fwtrue = true;
-    private bool facingRight = false;
+    private bool facingRight = true;
 
     //Radius
     public float followRad;
@@ -76,14 +78,45 @@ public class CloseRangeAI : MonoBehaviour
                 transform.Rotate(0, 180, 0);
                 facingRight = true;
             }
-            if(transform.position.x > backPos.transform.position.x)
+            if (transform.position.x > backPos.transform.position.x)
             {
-                
+
                 fwtrue = true;
             }
         }
-        
+
     }
+
+    public void follow(StateMachine s)
+    {
+        if (Vector3.Distance(transform.position, target.transform.position) < attackRad)
+        {
+            s.SetActiveState("Attack");
+        }
+        else if (Vector3.Distance(transform.position, target.transform.position) > followRad)
+        {
+            s.SetActiveState("Idle");
+        }
+        else if (transform.position.x > target.transform.position.x)
+        {
+            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+            if (facingRight == true)
+            {
+                transform.Rotate(0, 180, 0);
+                facingRight = false;
+            }
+        }
+        else if (transform.position.x < target.transform.position.x)
+        {
+            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
+            if (facingRight != true)
+            {
+                transform.Rotate(0, 180, 0);
+                facingRight = true;
+            }
+        }
+    }
+
 
     public void attack(StateMachine s)
     {
@@ -93,46 +126,19 @@ public class CloseRangeAI : MonoBehaviour
         }
         else
         {
-            
-            if (ch.isInfected == true && dA > delayAttack)
-            {
-                ph.Damage(dmgInf);
-                dA = 0;
-                Debug.Log(ph.health);
-            }
-            else if(ch.isInfected != true && dA > delayAttack)
-                ph.Damage(dmgP);
-            
-        }
-    }
-
-    public void follow(StateMachine s)
-    {
-        if (Vector3.Distance(transform.position, target.transform.position) < attackRad)
-        {
-            s.SetActiveState("Attack");
-        }
-        else if(Vector3.Distance(transform.position, target.transform.position) > followRad)
-        {
-            s.SetActiveState("Idle");
-        }
-        else if(transform.position.x > target.transform.position.x)
-        {
-            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-            if (facingRight == true)
-            {
-                transform.Rotate(0, 180, 0);
-                facingRight = false;
-            }
-        }
-        else if(transform.position.x < target.transform.position.x)
-        {
-            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
-            if (facingRight != true)
-            {
-                transform.Rotate(0, 180, 0);
-                facingRight = true;
-            }
+                if (Time.time > nextFire && ch.isInfected == true)
+                {
+                    if (facingRight)
+                    {
+                        nextFire = Time.time + fireRate;
+                        Instantiate(projectile, fp.position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                    }
+                    else if (!facingRight)
+                    {
+                        nextFire = Time.time + fireRate;
+                        Instantiate(projectile, fp.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                    }
+                }
         }
     }
 
