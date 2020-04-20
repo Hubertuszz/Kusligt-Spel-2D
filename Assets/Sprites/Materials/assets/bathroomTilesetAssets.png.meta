@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 26dbb09d2049f514babf1147a2f9d082
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -407786240468980541
+    second: bathroomTilesetAssets_0
+  - first:
+      213: 3659828089929064105
+    second: bathroomTilesetAssets_1
+  - first:
+      213: 9174864211149569652
+    second: bathroomTilesetAssets_2
+  - first:
+      213: 3921343847317750988
+    second: bathroomTilesetAssets_3
+  - first:
+      213: -7456244440687287884
+    second: bathroomTilesetAssets_4
+  - first:
+      213: -5969971026436059336
+    second: bathroomTilesetAssets_5
+  - first:
+      213: -559876096836418232
+    second: bathroomTilesetAssets_6
+  - first:
+      213: 1535663280645156122
+    second: bathroomTilesetAssets_7
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bathroomTilesetAssets_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 33
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.49481687, y: 0.47292107}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bf15fba6798bd64e9dcd8f84096f603
+      internalID: -407786240468980541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bathroomTilesetAssets_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 66
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.51323974, y: 0.47923064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f722d16964d4b594fbdcfeb3855bd9c1
+      internalID: 3659828089929064105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bathroomTilesetAssets_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56aaae57f013cb44f83846306f0e6229
+      internalID: 9174864211149569652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bathroomTilesetAssets_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 6
+        width: 20
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11376c9a1e0d983429faae2bef3e1d94
+      internalID: 3921343847317750988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bathroomTilesetAssets_4
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 6
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6191ef8fbfb75c54b90504d87c209c4f
+      internalID: -7456244440687287884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bathroomTilesetAssets_5
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 6
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c868e1d079614345b213cd76b4a6cb2
+      internalID: -5969971026436059336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bathroomTilesetAssets_6
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 39
+        width: 31
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c69d4c5bcffc0a440a9767cc1c55f9a9
+      internalID: -559876096836418232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bathroomTilesetAssets_7
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 39
+        width: 39
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e3b2e587ae2a7a4da51a1e19b6b5577
+      internalID: 1535663280645156122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -20, y: -49}
+      - {x: -20, y: -17}
+      - {x: -52, y: -16}
+      - {x: -52, y: -49}
+    - - {x: -19, y: -43}
+      - {x: -18, y: -11}
+      - {x: 3, y: -11}
+      - {x: 4, y: -43}
+    - - {x: 27, y: -43}
+      - {x: 27, y: -11}
+      - {x: 49, y: -11}
+      - {x: 49, y: -43}
+    - - {x: 5, y: -43}
+      - {x: 5, y: -11}
+      - {x: 26, y: -11}
+      - {x: 26, y: -43}
+    - - {x: -52, y: 17}
+      - {x: -52, y: 48}
+      - {x: -20, y: 48}
+      - {x: -20, y: 17}
+    - - {x: 20, y: -10}
+      - {x: 20, y: 49}
+      - {x: 52, y: 49}
+      - {x: 52, y: -10}
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
