@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     public GameObject Player;
     public GameObject blood;
     public Toggle splashBlood;
-
+    public Combo c;
     public Score sc;
 
     // Start is called before the first frame update
@@ -20,7 +20,11 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
             if(splashBlood.isOn)
                 Instantiate(blood, transform.position, Quaternion.identity);
-            sc.score += 10;
+            if (c.comboLvl == 0)
+                sc.score += 10;
+            else
+                sc.score += 10 * c.comboLvl;
+            c.NewCombo();
             PlayerPrefs.SetInt("score", sc.score);
         }
     }

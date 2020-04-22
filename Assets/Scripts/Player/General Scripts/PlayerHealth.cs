@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health = 100;
         src.clip = clip;
+        image.rectTransform.sizeDelta = new Vector2(health, 25);
     }
 
     void Update()
@@ -27,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
     public void Damage(int a)
     {
         health -= a;
+        image.rectTransform.sizeDelta = new Vector2(health, 25);
     }
 
     void Die()
