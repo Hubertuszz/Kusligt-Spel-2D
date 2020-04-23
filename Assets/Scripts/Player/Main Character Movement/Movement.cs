@@ -1,57 +1,58 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
-	public bool m_FacingRight = true;
-	public float speed;
-	public float jumpForce;
-	public float circleRad;
-	public LayerMask whatIsGround;
-	public Transform feetPos;
-	public bool isGrounded;
+public class Movement : MonoBehaviour
+{
+    Rigidbody2D rb;
+    public Vector2 lookFacing;
+    public Transform ground;
 
-	private Rigidbody2D rb;
-	private Transform player;
-    public Animator anim;
+    bool isGrounded = true;
 
-	void Start(){
-		rb = GetComponent<Rigidbody2D>();
-		player = GetComponent<Transform>();
-        anim = GetComponent<Animator>();
+    public int circleRad;
+    public LayerMask whatIsGround;
+    public float moveSpeed;
+    public float jumpForce;
+    public bool facingRight = true;
 
-	}
-
-	void Update(){
-		isGrounded = Physics2D.OverlapCircle(feetPos.position, circleRad, whatIsGround);
-
-        anim.SetFloat("MovementSpeed", Mathf.Abs(rb.velocity.x));
-
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.W))
-			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-		
-
-	}
-
-	void FixedUpdate(){
-		Move(Input.GetAxisRaw("Horizontal"));
-		
-	}
-
-
-
-
-	public void Move(float horiz){
-		Vector2 moveVel = rb.velocity;
-		moveVel.x = horiz * speed;
-		rb.velocity = moveVel;
-		if (horiz > 0 && !m_FacingRight)
-			Flip();
-		else if (horiz < 0 && m_FacingRight)
-			Flip();
-	}
-	public void Flip()
+    void Start()
     {
-        m_FacingRight = !m_FacingRight;
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        isGrounded = Physics2D.OverlapCircle(ground.position, circleRad, whatIsGround);
+
+        Vector3 tryMove = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            tryMove += Vector3Int.left;
+            if (facingRight == true)
+                Flip();
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            tryMove += Vector3Int.right;
+            if (facingRight == false)
+                Flip();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
+            rb.velocity = Vector3.up * 1000;
+
+        rb.velocity = Vector3.ClampMagnitude(tryMove, 1f) * moveSpeed;
+
+        if (tryMove.magnitude > 0f)
+            lookFacing = tryMove;
+
+    }
+    public void Flip()
+    {
+        facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
 }
+
+
