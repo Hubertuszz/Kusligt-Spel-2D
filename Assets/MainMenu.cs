@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 
 public class MainMenu : MonoBehaviour
 {
@@ -14,8 +13,15 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var psList = PlayerPrefs.GetString("scores").Split('-');
-        Debug.Log(psList);
+        string[] psList = PlayerPrefs.GetString("scores").Split('-');
+
+        for(int i = 0; i < psList.Length;i++)
+        {
+            int.TryParse(psList[i], out int result);
+            if (result == 0)
+               psList = psList.Where(val => val != psList[i]).ToArray();
+        }
+
         if (psList.Length == 0)
         {
             ps.text = "None";
@@ -26,37 +32,14 @@ public class MainMenu : MonoBehaviour
             ps.text = "";
             for (int i = 0; i < psList.Length; i++)
                 ps.text += psList[i] + "\n";
-            hs.text = ""+BubbleSort(psList)[0];
+
+            hs.text = "High Score: " + psList[Enumerable.Range(0, psList.Length).
+                Aggregate((max, i) => int.Parse(psList[max]) > int.Parse(psList[i]) ? max : i)];
         }
-        
-
     }
 
-    string[] BubbleSort(string[] arr)
+    public void StartGame()
     {
-        int temp = 0;
-
-        for (int write = 0; write < arr.Length; write++)
-        {
-            for (int sort = 0; sort < arr.Length - 1; sort++)
-            {
-                if (int.Parse(arr[sort]) > int.Parse(arr[sort + 1]))
-                {
-                    temp = int.Parse(arr[sort + 1]);
-                    arr[sort + 1] = arr[sort];
-                    arr[sort] = ""+temp;
-                }
-            }
-        }
-        return arr;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void StartGame() {
         SceneManager.LoadScene("SampleScene");
     }
 }

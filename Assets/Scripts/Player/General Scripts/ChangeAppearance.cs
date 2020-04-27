@@ -16,15 +16,15 @@ public class ChangeAppearance : MonoBehaviour
         amount = 0;
     }
     void Update() {
-        image.rectTransform.sizeDelta = new Vector2(amount,20);
+        image.rectTransform.sizeDelta = new Vector2(amount,10);
         
         if(isInfected == false) {
             if(amount < 100f)
-                amount += 0.1f;
+                amount += 40 * Time.deltaTime;
         } else
         {
             if (amount >= 0)
-                amount-=0.2f;
+                amount-= 25* Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.P) && isInfected == false) {

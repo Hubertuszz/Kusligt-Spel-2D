@@ -98,10 +98,7 @@ public class CloseRangeAI : MonoBehaviour
                 ph.Damage(dmgInf);
                 dA = 0;
                 Debug.Log(ph.health);
-            }
-            else if(ch.isInfected != true && dA > delayAttack)
-                ph.Damage(dmgP);
-            
+            }    
         }
     }
 
