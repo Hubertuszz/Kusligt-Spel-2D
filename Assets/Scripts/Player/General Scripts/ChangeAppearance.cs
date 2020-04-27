@@ -20,11 +20,11 @@ public class ChangeAppearance : MonoBehaviour
         
         if(isInfected == false) {
             if(amount < 100f)
-                amount += 0.1f;
+                amount += 40 * Time.deltaTime;
         } else
         {
             if (amount >= 0)
-                amount-=0.2f;
+                amount-= 25* Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.P) && isInfected == false) {
