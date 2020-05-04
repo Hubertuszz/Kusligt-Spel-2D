@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 0ccbc194d4636ed4b87fe5aac1054ed9
+guid: 5715f016cdc6a174696f00ae9b3c46ac
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8053780359978884710
-    second: "h\xF6gtalare_0"
+      213: -7547795520273823700
+    second: barAsset_0
   - first:
-      213: -7383596302909827216
-    second: "h\xF6gtalare_1"
+      213: 6609391173030604558
+    second: barAsset_1
+  - first:
+      213: -304136844324040742
+    second: barAsset_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -42,17 +45,17 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  alignment: 9
+  spritePivot: {x: 0.12651725, y: 0.5442677}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 46, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -87,7 +90,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
@@ -99,18 +102,18 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "h\xF6gtalare_0"
+      name: barAsset_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 23
-        height: 32
+        width: 13
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d03bc6aba562f64cb933a0061a3d835
-      internalID: 8053780359978884710
+      spriteID: 5dd7ea8518460964ca5d7d0e2fb3445b
+      internalID: -7547795520273823700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "h\xF6gtalare_1"
+      name: barAsset_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 14
         y: 0
-        width: 23
-        height: 32
+        width: 32
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +142,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 523f17261f59de949b58db8806f4e8ab
-      internalID: -7383596302909827216
+      spriteID: 5134b6194759c9e44825c1256640babc
+      internalID: 6609391173030604558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: barAsset_2
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63fb9450a97b522439bc7b1c8c814caa
+      internalID: -304136844324040742
       vertices: []
       indices: 
       edges: []
@@ -148,7 +172,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8c664d38d630bfd4e9159820ed2d19e6
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 

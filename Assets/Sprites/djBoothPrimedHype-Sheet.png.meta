@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: 0ccbc194d4636ed4b87fe5aac1054ed9
+guid: 03bae4b621c79f74bad27cd672d15ae8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8053780359978884710
-    second: "h\xF6gtalare_0"
+      213: 4054907816967399365
+    second: djBoothPrimedHype-Sheet_0
   - first:
-      213: -7383596302909827216
-    second: "h\xF6gtalare_1"
+      213: 7578351064686393537
+    second: djBoothPrimedHype-Sheet_1
+  - first:
+      213: -7089773216745732895
+    second: djBoothPrimedHype-Sheet_2
+  - first:
+      213: -4589934470084083573
+    second: djBoothPrimedHype-Sheet_3
+  - first:
+      213: -6621460935237047812
+    second: djBoothPrimedHype-Sheet_4
+  - first:
+      213: 1888738273261895686
+    second: djBoothPrimedHype-Sheet_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -42,7 +54,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -87,7 +99,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
@@ -99,18 +111,18 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "h\xF6gtalare_0"
+      name: djBoothPrimedHype-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 23
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d03bc6aba562f64cb933a0061a3d835
-      internalID: 8053780359978884710
+      spriteID: 65e9417e1ccca184a8d0d67ca27ced38
+      internalID: 4054907816967399365
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "h\xF6gtalare_1"
+      name: djBoothPrimedHype-Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
-        width: 23
-        height: 32
+        x: 65
+        y: 1
+        width: 63
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +151,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 523f17261f59de949b58db8806f4e8ab
-      internalID: -7383596302909827216
+      spriteID: f7f426708f1500b4894fc51b4730f8a4
+      internalID: 7578351064686393537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: djBoothPrimedHype-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df68d027e1d5e34aae18264a27f2a1a
+      internalID: -7089773216745732895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: djBoothPrimedHype-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 0
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7acff0b3a8a7314db0d19d7a8f02159
+      internalID: -4589934470084083573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: djBoothPrimedHype-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 0
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a1ead59de5c4b3479309f301252e268
+      internalID: -6621460935237047812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: djBoothPrimedHype-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 0
+        width: 63
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f6a137d3e7a5346a7cdfe79bb4d2c9
+      internalID: 1888738273261895686
       vertices: []
       indices: 
       edges: []
@@ -148,7 +244,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8c664d38d630bfd4e9159820ed2d19e6
+    spriteID: b6aa730c532cc4042b88cea549d30aed
     internalID: 0
     vertices: []
     indices: 
