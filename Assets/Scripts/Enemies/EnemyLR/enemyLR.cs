@@ -130,12 +130,12 @@ public class enemyLR : MonoBehaviour
                 if (facingRight)
                 {
                     nextFire = Time.time + fireRate;
-                    Instantiate(projectile, fp.position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                    Instantiate(projectile, fp.position, Quaternion.Euler(new Vector3(0, 0, 0)));
                 }
                 else if (!facingRight)
                 {
                     nextFire = Time.time + fireRate;
-                    Instantiate(projectile, fp.position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                    Instantiate(projectile, fp.position, Quaternion.Euler(new Vector3(0, 0, 180)));
                 }
             }
         }

@@ -4,6 +4,7 @@ using System.Collections;
 public class Movement : MonoBehaviour
 {
     Rigidbody2D rb;
+    SpriteRenderer sr;
     public Vector2 lookFacing;
     public Transform ground;
 
@@ -18,6 +19,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -38,6 +40,18 @@ public class Movement : MonoBehaviour
             if (facingRight == false)
                 Flip();
         }
+
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        //    sr.flipX = false;
+        //}
+        //else if (Input.GetKey(KeyCode.A))
+        //{
+        //    transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
+        //    sr.flipX = true;
+        //}
+
 
         if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
             rb.velocity = Vector3.up * 1000;

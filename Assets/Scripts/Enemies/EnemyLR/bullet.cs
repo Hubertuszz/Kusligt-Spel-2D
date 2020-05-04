@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    public float speed1 = 1000f;
+    public float speed1 = 10000f;
     int direction;
     Rigidbody2D MyRB;
     public int dmg;
@@ -14,7 +14,7 @@ public class bullet : MonoBehaviour
     {
         MyRB = GetComponent<Rigidbody2D>();
 
-        MyRB.AddForce(-transform.right * speed1, ForceMode2D.Impulse);
+        MyRB.AddForce(transform.right * speed1, ForceMode2D.Impulse);
 
     }
 
