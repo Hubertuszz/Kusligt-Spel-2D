@@ -23,18 +23,14 @@ public class MainMenu : MonoBehaviour
         }
 
         if (psList.Length == 0)
-        {
             ps.text = "None";
-            hs.text = "None";
-        }
-        else
-        {
+        else {
             ps.text = "";
             for (int i = 0; i < psList.Length; i++)
-                ps.text += psList[i] + "\n";
+                ps.text += float.Parse(psList[i]).ToString("0.0") + "\n";
 
-            hs.text = "High Score: " + psList[Enumerable.Range(0, psList.Length).
-                Aggregate((max, i) => int.Parse(psList[max]) > int.Parse(psList[i]) ? max : i)];
+
+            hs.text = "High Score: " + PlayerPrefs.GetFloat("highScore").ToString("0.0");
         }
     }
 
