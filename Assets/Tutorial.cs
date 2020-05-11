@@ -8,6 +8,9 @@ public class Tutorial : MonoBehaviour
     public GameObject go;
     public GameObject player;
     public GameObject lockedDoor;
+    public GameObject testEnemy;
+    public Timer timer;
+
     public Text infoTxt;
     int step = 0;
     bool choice;
@@ -37,11 +40,21 @@ public class Tutorial : MonoBehaviour
             else if (step == 4)
             {
                 infoTxt.text = "While you are in fighting mode, you can hurt a nearby enemy by pressing SPACE. Try killing this guy!";
+                testEnemy.SetActive(true);
                 step = 5;
             }
+            else if (step == 5)
+            {
+                if (testEnemy == null)
+                    step = 6;
+            }
+            else if (step == 6)
+            {
+                infoTxt.text = "You are now ready to fight, go forward and enter the new room. Good luck.";
+            }
+
             if (Input.GetKeyDown(KeyCode.W) && step == 0)
                 step++;
-
             if(Input.GetKeyDown(KeyCode.D) &&step == 1 || Input.GetKeyDown(KeyCode.A) && step == 1)
                 step++;
             if (Input.GetKeyDown(KeyCode.P) && step == 2)
@@ -55,8 +68,8 @@ public class Tutorial : MonoBehaviour
     {
         go.SetActive(false);
         lockedDoor.SetActive(true);
-        player.transform.position = new Vector2(-7, player.transform.position.y);
-        Camera.main.transform.position = new Vector3(-7, Camera.main.transform.position.y, Camera.main.transform.position.z);
+        player.transform.position = new Vector2(26, player.transform.position.y);
+        Camera.main.transform.position = new Vector3(26, Camera.main.transform.position.y, Camera.main.transform.position.z);
+        timer.StartTimer();
     }
-
 }

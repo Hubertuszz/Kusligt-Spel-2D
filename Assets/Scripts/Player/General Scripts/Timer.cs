@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     
     // Start is called before the first frame update
     void Start() {
-        StartTimer();
+        
     }
 
     public void StartTimer(){
@@ -18,8 +18,6 @@ public class Timer : MonoBehaviour
     }
   
     void Update() {
-        if(GameObject.FindGameObjectsWithTag("Infected").Length == 0)
-            StopTimer();
     }
 
     public void StopTimer(){
