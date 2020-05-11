@@ -1,72 +1,92 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.Events;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody2D rb;
-    SpriteRenderer sr;
-    public Vector2 lookFacing;
-    public Transform ground;
+	[SerializeField] private float m_JumpForce = 400f;
+	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f; 
+	[SerializeField] private bool m_AirControl = false; 
+	[SerializeField] private LayerMask m_WhatIsGround;
+	[SerializeField] private Transform m_GroundCheck;
+	[SerializeField] private Transform m_CeilingCheck; 
 
-    bool isGrounded = true;
+	const float k_GroundedRadius = .7f;
+	private bool m_Grounded;
+	private Rigidbody2D m_Rigidbody2D;
+	private bool m_FacingRight = true;
+	private Vector3 m_Velocity = Vector3.zero;
 
-    public int circleRad;
-    public LayerMask whatIsGround;
-    public float moveSpeed;
-    public float jumpForce;
-    public bool facingRight = true;
+	[Header("Events")]
+	[Space]
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-    }
+	public UnityEvent OnLandEvent;
 
-    void Update()
-    {
-        isGrounded = Physics2D.OverlapCircle(ground.position, circleRad, whatIsGround);
+	[System.Serializable]
+	public class BoolEvent : UnityEvent<bool> { }
 
-        Vector3 tryMove = Vector3.zero;
+	public BoolEvent OnCrouchEvent;
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            tryMove += Vector3Int.left;
-            if (facingRight == true)
-                Flip();
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            tryMove += Vector3Int.right;
-            if (facingRight == false)
-                Flip();
-        }
+	private void Awake()
+	{
+		m_Rigidbody2D = GetComponent<Rigidbody2D>();
 
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-        //    sr.flipX = false;
-        //}
-        //else if (Input.GetKey(KeyCode.A))
-        //{
-        //    transform.position += Vector3.right * -moveSpeed * Time.deltaTime;
-        //    sr.flipX = true;
-        //}
+		if (OnLandEvent == null)
+			OnLandEvent = new UnityEvent();
+
+		if (OnCrouchEvent == null)
+			OnCrouchEvent = new BoolEvent();
+	}
+
+	private void FixedUpdate()
+	{
+		bool wasGrounded = m_Grounded;
+		m_Grounded = false;
+
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			if (colliders[i].gameObject != gameObject)
+			{
+				m_Grounded = true;
+				if (!wasGrounded)
+					OnLandEvent.Invoke();
+			}
+		}
+	}
 
 
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded == true)
-            rb.velocity = Vector3.up * 1000;
+	public void Move(float move, bool jump)
+	{
+		if (m_Grounded || m_AirControl)
+		{
+			Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
+			m_Rigidbody2D.velocity = Vector3.SmoothDamp(m_Rigidbody2D.velocity, targetVelocity, ref m_Velocity, m_MovementSmoothing);
 
-        rb.velocity = Vector3.ClampMagnitude(tryMove, 1f) * moveSpeed;
+			if (move > 0 && !m_FacingRight)
+			{
+				Flip();
+			}
 
-        if (tryMove.magnitude > 0f)
-            lookFacing = tryMove;
+			else if (move < 0 && m_FacingRight)
+			{
+				Flip();
+			}
+		}
 
-    }
-    public void Flip()
-    {
-        facingRight = !facingRight;
-        transform.Rotate(0f, 180f, 0f);
-    }
+		if (m_Grounded && jump)
+		{
+
+			m_Grounded = false;
+			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+		}
+	}
+
+
+	private void Flip()
+	{
+		m_FacingRight = !m_FacingRight;
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
 }
-
-
