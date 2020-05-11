@@ -14,8 +14,8 @@ public class DiedMenu : MonoBehaviour
     private void Start()
     {
         sc.scoreTxt.enabled = false;
-        scoreTxt.text = "Score: " + (int)(sc.score / (timer.time / 3));
-        PlayerPrefs.SetString("scores", PlayerPrefs.GetString("scores") + (int)(sc.score / (timer.time / 3)) + "-");
+        scoreTxt.text = "Score: " + (float)(sc.score / (timer.time / 3));
+        PlayerPrefs.SetString("scores", PlayerPrefs.GetString("scores") + (float)(sc.score / (timer.time / 3)) + "-");
     }
 
     public void BackToMainMenu()
