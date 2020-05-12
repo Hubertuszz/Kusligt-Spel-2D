@@ -17,7 +17,9 @@ public class EnterRoom : MonoBehaviour
     public AudioSource audioData;
     public GameObject lockedDoor;
     public Tutorial tut;
-
+    public PlayerHealth h;
+    public GameObject nextDoor;
+    bool changed = false;
     void Start()
     {
         audioData = GetComponent<AudioSource>(); 
@@ -26,10 +28,15 @@ public class EnterRoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (h.kills == 10 && changed == false)
+        {
+            KilledAll();
+            changed = true;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        SpawnEnemies();
         tut.step += 2;
         txt.gameObject.SetActive(false);
         lockedDoor.SetActive(true);
@@ -38,6 +45,16 @@ public class EnterRoom : MonoBehaviour
         door.SetActive(true);
         timer.StartTimer();
         audioData.Play(0);
-        GetComponent<BoxCollider2D>().enabled = false;    
+        GetComponent<BoxCollider2D>().enabled = false;  
+    }
+
+    void SpawnEnemies()
+    {
+
+    }
+
+    void KilledAll()
+    {
+        nextDoor.SetActive(false);
     }
 }

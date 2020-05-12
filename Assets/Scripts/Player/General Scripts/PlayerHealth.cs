@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public int g = 0;
     public GameObject audioData;
     public GameObject deathMenu;
+    public int kills;
 
     void Start()
     {
