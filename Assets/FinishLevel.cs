@@ -23,5 +23,7 @@ public class FinishLevel : MonoBehaviour
     {
         player.GetComponent<PlayerHealth>().health = 0;
         youWon.gameObject.SetActive(true);
+        GetComponent<AudioSource>().Play(0);
+        GetComponent<AudioSource>().time = 1f;
     }
 }

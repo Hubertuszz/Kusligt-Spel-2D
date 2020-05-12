@@ -5,25 +5,29 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public int dmg;
-    bool canAttack = false;
     Collider2D infected;
+    public GameObject bulletPrefab;
+    public Transform position;
+    float canFire = 2;
+    public GameObject audio;
 
-    void Update() {
-        if(canAttack == true && Input.GetKeyDown(KeyCode.Space) && infected)
-            infected.gameObject.GetComponent<Health>().TakeDmg(34);            
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            Shoot();
+        canFire += Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D col) {
-        if(col.gameObject.tag == "Infected") {
-            canAttack = true;
-            infected = col;
-        }
-    }
+    void Shoot()
+    {
+        if(canFire >= 0.6f)
+        {
+            Instantiate(bulletPrefab, position.position, Quaternion.Euler(new Vector3(0, 0, transform.localEulerAngles.z)));
+            canFire = 0;
+            
+            audio.GetComponent<AudioSource>().Play(0);
+            audio.GetComponent<AudioSource>().time = 0.5f;
 
-    void OnTriggerExit2D(Collider2D col) {
-        if(col.gameObject.tag == "Infected") {
-            canAttack = false;
-            infected = null;
         }
     }
 }

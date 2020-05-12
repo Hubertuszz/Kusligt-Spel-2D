@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public Toggle splashBlood;
     public Combo c;
     public Score sc;
+    public AudioSource src;
 
     // Start is called before the first frame update
     public void TakeDmg(int amount) {
@@ -20,6 +21,7 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
             if(splashBlood.isOn)
                 Instantiate(blood, transform.position, Quaternion.identity);
+            src.Play(0);
             if (c.comboLvl == 0)
                 sc.score += 10;
             else

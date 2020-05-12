@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,7 +13,7 @@ public class Tutorial : MonoBehaviour
     public Timer timer;
 
     public Text infoTxt;
-    int step = 0;
+    public int step = 0;
     bool choice;
     // Start is called before the first frame update
     void Start()
@@ -30,16 +31,16 @@ public class Tutorial : MonoBehaviour
         {
             go.SetActive(false);
             if (step == 0)
-                infoTxt.text = "Movement information: \n Try jumping by pressing W";
+                infoTxt.text = "MOVEMENT INFORMATION: \n TRY JUMPING BY PRESSING W";
             else if (step == 1)
-                infoTxt.text = "Good job! \n Now, move horizontally by using D (right) and A (left)";
-            else if (step == 2)
-                infoTxt.text = "Perfect, You have now learned to move.\n Let's present your special ability: Shapeshifting. When the charge (white bar) is ready, press P to change into the fighting shape.\n";
+                infoTxt.text = "GOOD JOB!\n NOW, MOVE HORIZONTALLY BY USING D (RIGHT) AND A (LEFT)";
+            else if (step == 2) 
+                infoTxt.text = "PERFECT, YOU HAVE NOW LEARNED TO MOVE.\n LET'S PRESENT YOUR SPECIAL ABILITY: SHAPESHIFTING. WHEN THE CHARGE (WHITE BAR) IS READY, PRESS P TO CHANGE INTO THE FIGHTING SHAPE.\n";
             else if (step == 3)
-                infoTxt.text = "You are now in the fighting shape.\n When you are in the fighting shape, you are capable of killing enemies, but also getting hurt, which is the complete opposite of Non-fighting mode.\n When this is understood, press RETURN";
+                infoTxt.text = "You are now in the fighting shape.\n When you are in the fighting shape, you are capable of killing enemies, but also getting hurt, which is the complete opposite of Non-fighting mode.\n When this is understood, press RETURN".ToUpper();
             else if (step == 4)
             {
-                infoTxt.text = "While you are in fighting mode, you can hurt a nearby enemy by pressing SPACE. Try killing this guy!";
+                infoTxt.text = "While you are in fighting mode, you can spit your lethal and rock hard venom by pressing SPACE. Try killing this guy!".ToUpper();
                 testEnemy.SetActive(true);
                 step = 5;
             }
@@ -50,7 +51,7 @@ public class Tutorial : MonoBehaviour
             }
             else if (step == 6)
             {
-                infoTxt.text = "You are now ready to fight, go forward and enter the new room. Good luck.";
+                infoTxt.text = "You are now ready to fight, go forward and enter the new room. Good luck.".ToUpper();
             }
 
             if (Input.GetKeyDown(KeyCode.W) && step == 0)

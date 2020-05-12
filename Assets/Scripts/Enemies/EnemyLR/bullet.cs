@@ -4,31 +4,42 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    public float speed1 = 10000f;
+    public float speed1 = 0;
     int direction;
     Rigidbody2D MyRB;
     public int dmg;
-
+    int dir;
 
     private void Awake()
     {
         MyRB = GetComponent<Rigidbody2D>();
-
-        MyRB.AddForce(transform.right * speed1, ForceMode2D.Impulse);
-
+        dir = GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().direction;
     }
-
+    private void Update()
+    {
+        transform.Translate(dir * Vector2.right * Time.deltaTime * 60);
+    }
     private void OnTriggerEnter2D(Collider2D hit)
     {
-        if (hit.gameObject.tag == "Player")
+        if (hit.gameObject.tag == "Infected")
         {
-            hit.GetComponent<PlayerHealth>().Damage(dmg);
+            hit.GetComponent<Health>().TakeDmg(dmg);
+            hit.GetComponent<SpriteRenderer>().color = Color.red;
+            GetComponent<SpriteRenderer>().enabled = false;
+            StartCoroutine(Wait(hit));
         }
-        Destroy(this.gameObject);
+       
     }
 
+    IEnumerator Wait(Collider2D g)
+    {
+        yield return new WaitForSeconds(0.1f);
+        g.GetComponent<SpriteRenderer>().color = Color.white;
+        Destroy(gameObject);
+    }
     void Start()
     {
+        
         StartCoroutine(DestroyFireBall());
     }
 

@@ -2,31 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class Timer : MonoBehaviour
 {
     public float time = 0;
     public Text timer;
-    
-    // Start is called before the first frame update
-    void Start() {
-        
-    }
+    bool timing = false;
 
-    public void StartTimer(){
-        time = 0;
-        InvokeRepeating("IncrementTime", 1,1);
+    public void StartTimer()
+    {
+        timing = true;
     }
   
-    void Update() {
+    void Update() 
+    {
+        if (timing == true)
+            IncrementTime(); 
     }
 
-    public void StopTimer(){
-        CancelInvoke();
+    public void StopTimer()
+    {
+        timing = false;
     }
 
-    public void IncrementTime() {
+    void IncrementTime() {
 
-        time += 1;
+        time += Time.deltaTime;
         
         int minutes = Mathf.FloorToInt(time / 60f);
         int seconds = Mathf.RoundToInt(time % 60f);

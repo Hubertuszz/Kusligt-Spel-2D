@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;
 	private Vector3 m_Velocity = Vector3.zero;
-
+	public int direction = 1;
 	[Header("Events")]
 	[Space]
 
@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
 
 		if (m_Grounded && jump)
 		{
-
+			GetComponent<AudioSource>().Play(0);
 			m_Grounded = false;
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 		}
@@ -87,6 +87,7 @@ public class Movement : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
+		direction *= -1;
 		transform.localScale = theScale;
 	}
 }

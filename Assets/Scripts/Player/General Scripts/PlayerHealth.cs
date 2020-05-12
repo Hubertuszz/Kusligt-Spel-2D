@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int health;
     public Image image;
-
-    public AudioClip clip;
-    public AudioSource src;
-
+    public int g = 0;
+    public GameObject audioData;
     public GameObject deathMenu;
 
     void Start()
     {
-
         Time.timeScale = 1;
         health = 100;
-        src.clip = clip;
         image.rectTransform.sizeDelta = new Vector2(health, 25);
     }
 
@@ -37,9 +34,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        src.enabled = true;
+        audioData.GetComponent<AudioSource>().Play(0);
+        audioData.GetComponent<AudioSource>().time = 1.5f;
         deathMenu.SetActive(true);
         GetComponent<SpriteRenderer>().enabled = false;
-        Time.timeScale = 0;
     }
 }
