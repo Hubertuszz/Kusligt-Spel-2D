@@ -16,9 +16,7 @@ public class PlayerCtr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        void FixedUpdate(){
             float move = Input.GetAxis ("Horizontal");
             rb.velocity = new Vector2 (speed * move, rb.velocity.y); 
-        }
     }
 }
