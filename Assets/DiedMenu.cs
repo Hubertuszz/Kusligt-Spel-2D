@@ -15,10 +15,10 @@ public class DiedMenu : MonoBehaviour
     {
         sc.scoreTxt.enabled = false;
         if(sc.score != 0)
-            scoreTxt.text = "SCORE: " + (sc.score / (timer.time / 3)).ToString("0.0");
-        PlayerPrefs.SetString("scores", PlayerPrefs.GetString("scores") + (float)(sc.score / (timer.time / 3)) + "-");
-        if (sc.score > PlayerPrefs.GetFloat("highScore"))
-            PlayerPrefs.SetFloat("highScore", (float)(sc.score / (timer.time / 3)));
+            scoreTxt.text = "SCORE: " + (sc.score / (timer.time / 20)).ToString("0");
+        PlayerPrefs.SetString("scores", PlayerPrefs.GetString("scores") + (float)(sc.score / (timer.time / 20)) + "-");
+        if ((float)(sc.score / (timer.time / 20)) > PlayerPrefs.GetFloat("highScore"))
+            PlayerPrefs.SetFloat("highScore", (float)(sc.score / (timer.time / 20)));
     }
 
     public void BackToMainMenu()

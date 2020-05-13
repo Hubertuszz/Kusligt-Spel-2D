@@ -21,25 +21,18 @@ public class MainMenu : MonoBehaviour
     {
         audioData = GetComponent<AudioSource>();
         audioData.Play(0);
-        Debug.Log("started");
-        string[] psList = PlayerPrefs.GetString("scores").Split('-');
 
-        for(int i = 0; i < psList.Length;i++)
-        {
-            int.TryParse(psList[i], out int result);
-            if (result == 0)
-               psList = psList.Where(val => val != psList[i]).ToArray();
-        }
+        string[] psList = PlayerPrefs.GetString("scores").Split('-');
 
         if (psList.Length == 0)
             ps.text = "None";
         else {
             ps.text = "";
-            for (int i = 0; i < psList.Length; i++)
-                ps.text += float.Parse(psList[i]).ToString("0.0") + "\n";
+            for (int i = psList.Length - 1; i >= 0; i--)
+                ps.text += psList[i].ToString().Split(new char[] { ',' })[0] + "\n";
 
 
-            hs.text = "High Score: " + PlayerPrefs.GetFloat("highScore").ToString("0.0");
+            hs.text = "High Score: " + PlayerPrefs.GetFloat("highScore").ToString().Split(new char[] { ',' })[0] + "\n";
         }
     }
 

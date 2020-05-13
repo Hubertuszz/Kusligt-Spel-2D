@@ -26,6 +26,7 @@ public class bullet : MonoBehaviour
             hit.GetComponent<Health>().TakeDmg(dmg);
             hit.GetComponent<SpriteRenderer>().color = Color.red;
             GetComponent<SpriteRenderer>().enabled = false;
+            transform.position = new Vector3(10000, -10000, 10);
             StartCoroutine(Wait(hit));
         }
        

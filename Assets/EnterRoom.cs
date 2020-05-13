@@ -19,9 +19,14 @@ public class EnterRoom : MonoBehaviour
     public Tutorial tut;
     public PlayerHealth h;
     public GameObject nextDoor;
+    public Spawner sp;
     bool changed = false;
+    GameObject aud;
+
+    public Text t;
     void Start()
     {
+        aud = GameObject.FindWithTag("ChestSound");
         audioData = GetComponent<AudioSource>(); 
     }
 
@@ -50,11 +55,14 @@ public class EnterRoom : MonoBehaviour
 
     void SpawnEnemies()
     {
-
+        sp.InvokeRepeating("SpawnEnemy", 0f, 2f);
     }
 
     void KilledAll()
     {
         nextDoor.SetActive(false);
+        aud.GetComponent<AudioSource>().Play(0);
+        t.gameObject.SetActive(true);
+        t.text = "Good job, now continue forward.";
     }
 }

@@ -28,7 +28,7 @@ public class CloseRangeAI : MonoBehaviour
     public float attackRad;
 
     //movement
-    private float maxSpeed = 7.5f;
+    private float maxSpeed = 12f;
 
 
 
